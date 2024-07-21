@@ -12,16 +12,26 @@
             color: white;
             text-align: center;
             padding: 50px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
         }
 
         .button-container {
             display: flex;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px 0;
         }
 
         .button-container a {
-            background-color: #4CAF50;
+            background-color: #555;
             color: white;
             padding: 15px 20px;
             text-align: center;
@@ -29,10 +39,11 @@
             margin: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
+            flex: 1;
         }
 
         .button-container a:hover {
-            background-color: #45a049;
+            background-color: #666;
         }
 
         .section {
@@ -45,36 +56,43 @@
     </style>
 </head>
 <body>
-    <h1>Laipni lūdzam mūsu spēlē!</h1>
-    <p>Šī ir vienkārša lapa ar melnu fonu.</p>
+    <div class="content">
+        <h1>Laipni lūdzam mūsu spēlē!</h1>
+        <p>Šī ir vienkārša lapa ar melnu fonu.</p>
+
+        <div id="home" class="section active">
+            <h2>Home Section</h2>
+            <p>Welcome to the home section of the app.</p>
+        </div>
+
+        <div id="task" class="section">
+            <h2>Task Section</h2>
+            <p>Welcome to the task section of the app.</p>
+        </div>
+
+        <div id="friends" class="section">
+            <h2>Friends Section</h2>
+            <p>Welcome to the friends section of the app.</p>
+        </div>
+
+        <div id="wallet" class="section">
+            <h2>Wallet Section</h2>
+            <p>Welcome to the wallet section of the app.</p>
+        </div>
+
+        <div id="game" class="section">
+            <h1>Welcome to the Interactive Game</h1>
+            <p id="score">Score: 0</p>
+            <button id="start-game">Start Game</button>
+            <script src="js/app.js"></script>
+        </div>
+    </div>
 
     <div class="button-container">
-        <a href="#main" onclick="showSection('main')">Main</a>
-        <a href="#game" onclick="showSection('game')">Game</a>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#task" onclick="showSection('task')">Task</a>
         <a href="#friends" onclick="showSection('friends')">Friends</a>
-        <a href="#build" onclick="showSection('build')">Build</a>
-    </div>
-
-    <div id="main" class="section active">
-        <h2>Main Section</h2>
-        <p>Welcome to the main section of the app.</p>
-    </div>
-
-    <div id="game" class="section">
-        <h1>Čau</h1>
-        <p id="score">Score: 0</p>
-        <button id="start-game">Start Game</button>
-        <script src="js/app.js"></script>
-    </div>
-
-    <div id="friends" class="section">
-        <h2>Friends Section</h2>
-        <p>Welcome to the friends section of the app.</p>
-    </div>
-
-    <div id="build" class="section">
-        <h2>Build Section</h2>
-        <p>Welcome to the build section of the app.</p>
+        <a href="#wallet" onclick="showSection('wallet')">Wallet</a>
     </div>
 
     <script>
