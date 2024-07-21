@@ -11,7 +11,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 50px;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -28,20 +28,18 @@
             justify-content: space-around;
             background-color: #444;
             padding: 10px 0;
-            flex-wrap: wrap;
         }
 
         .button-container a {
             background-color: #555;
             color: white;
-            padding: 10px 15px;
+            padding: 15px 20px;
             text-align: center;
             text-decoration: none;
-            margin: 5px;
+            margin: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
-            flex: 1 1 auto;
-            box-sizing: border-box;
+            flex: 1;
         }
 
         .button-container a:hover {
@@ -100,13 +98,6 @@
             <h2>Airdrop Section</h2>
             <p>Welcome to the airdrop section of the app.</p>
         </div>
-
-        <div id="game" class="section">
-            <h1>Welcome to the Interactive Game</h1>
-            <p id="score">Score: 0</p>
-            <button id="start-game">Start Game</button>
-            <script src="js/app.js"></script>
-        </div>
     </div>
 
     <div class="button-container">
@@ -126,23 +117,24 @@
             document.getElementById(id).classList.add('active');
         }
 
+        // Funkcija, lai ielādētu lietotāja profila attēlu un informāciju
         function loadUserProfile() {
             const userProfile = document.getElementById('user-profile');
-            const urlParams = new URLSearchParams(window.location.search);
-            const username = urlParams.get('username');
-            const photoUrl = urlParams.get('photoUrl');
 
-            if (username && photoUrl) {
-                userProfile.innerHTML = `
-                    <img src="${photoUrl}" alt="Profile Picture">
-                    <p>${username}</p>
-                `;
-            } else {
-                userProfile.innerHTML = `<p>No user data found.</p>`;
-            }
+            // Piemēra lietotāja dati, kurus aizvietos ar Telegram API atbildi
+            const user = {
+                photoUrl: 'https://via.placeholder.com/100', // Aizvietojiet ar reālo URL
+                firstName: 'John',
+                lastName: 'Doe'
+            };
+
+            userProfile.innerHTML = `
+                <img src="${user.photoUrl}" alt="Profile Picture">
+                <p>${user.firstName} ${user.lastName}</p>
+            `;
         }
 
-        loadUserProfile();
+        loadUserProfile(); // Sauciet funkciju, lai ielādētu lietotāja datus
     </script>
 </body>
 </html>
