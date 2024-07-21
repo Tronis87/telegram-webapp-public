@@ -3,13 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Game</title>
+    <title>Telegram Web App</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Interactive Game</h1>
-    <p id="score">Score: 0</p>
-    <button id="start-game">Start Game</button>
-    <script src="js/app.js"></script>
+    <h1>Laipni lūdzam mūsu spēlē!</h1>
+    <p>Šī ir vienkārša lapa ar melnu fonu.</p>
+
+    <div class="button-container">
+        <a href="#main" onclick="showSection('main')">Main</a>
+        <a href="#game" onclick="showSection('game')">Game</a>
+        <a href="#friends" onclick="showSection('friends')">Friends</a>
+        <a href="#build" onclick="showSection('build')">Build</a>
+    </div>
+
+    <div id="main" class="section active">
+        <h2>Main Section</h2>
+        <p>Welcome to the main section of the app.</p>
+    </div>
+
+    <div id="game" class="section">
+        <h1>Welcome to the Interactive Game</h1>
+        <p id="score">Score: 0</p>
+        <button id="start-game">Start Game</button>
+        <script src="js/app.js"></script>
+    </div>
+
+    <div id="friends" class="section">
+        <h2>Friends Section</h2>
+        <p>Welcome to the friends section of the app.</p>
+    </div>
+
+    <div id="build" class="section">
+        <h2>Build Section</h2>
+        <p>Welcome to the build section of the app.</p>
+    </div>
+
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+
+        document.getElementById('start-game').addEventListener('click', function() {
+            let score = 0;
+            document.getElementById('score').textContent = 'Score: ' + score;
+
+            // Add game logic here
+            alert('Game started!');
+        });
+    </script>
 </body>
 </html>
