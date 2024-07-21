@@ -19,6 +19,18 @@
             min-height: 100vh;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #444;
+        }
+
+        .header .user-info {
+            font-size: 16px;
+        }
+
         .content {
             flex: 1;
         }
@@ -68,6 +80,12 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="user-info" id="user-info">
+            <!-- Lietotāja informācija tiks ielādēta ar JavaScript -->
+        </div>
+    </div>
+    
     <div class="content">
         <div class="user-profile" id="user-profile">
             <!-- Lietotāja informācija tiks ielādēta ar JavaScript -->
@@ -119,17 +137,24 @@
         // Funkcija, lai ielādētu lietotāja profila attēlu un informāciju
         function loadUserProfile() {
             const userProfile = document.getElementById('user-profile');
+            const userInfo = document.getElementById('user-info');
 
             // Piemēra lietotāja dati, kurus aizvietos ar Telegram API atbildi
             const user = {
                 photoUrl: 'https://via.placeholder.com/100', // Aizvietojiet ar reālo URL
                 firstName: 'John',
-                lastName: 'Doe'
+                lastName: 'Doe',
+                userName: 'JohnDoe',
+                score: 100
             };
 
             userProfile.innerHTML = `
                 <img src="${user.photoUrl}" alt="Profile Picture">
                 <p>${user.firstName} ${user.lastName}</p>
+            `;
+
+            userInfo.innerHTML = `
+                <p>${user.userName} - CryptoGold: ${user.score}</p>
             `;
         }
 
